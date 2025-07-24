@@ -1,0 +1,89 @@
+# Cursor Rules for TSFoundations
+
+## Project Overview
+This is a Python project using modern development tools:
+- uv for package management
+- ruff for linting and formatting
+- mypy for type checking
+- pytest for testing
+
+## Code Style & Standards
+- Follow PEP 8 style guidelines strictly
+- Use type hints for all functions, methods, and variables
+- Keep functions under 20 lines when possible
+- Write comprehensive docstrings for all public functions and classes
+- Use descriptive variable and function names (snake_case)
+- Maximum line length: 88 characters (ruff default)
+
+## Python Best Practices
+- Use pathlib instead of os.path for file operations
+- Prefer list/dict comprehensions over loops when readable
+- Use dataclasses for simple data structures
+- Use enums for constants
+- Use context managers for resource management
+- Avoid mutable default arguments
+
+## Type Hints
+- Always use type hints for function parameters and return values
+- Use Optional[T] for nullable values
+- Use Union[T, U] or T | U for multiple types
+- Use TypeVar for generic functions
+- Import types from typing module when needed
+
+## Testing Standards
+- Write tests for all new functionality
+- Use pytest fixtures for test setup
+- Aim for >90% test coverage
+- Use descriptive test names: test_<function_name>_<scenario>
+- Mock external dependencies
+- Test both success and error cases
+
+## Development Workflow
+1. Use `uv sync` to install dependencies
+2. Use `ruff check` to lint code
+3. Use `ruff format` to format code
+4. Use `mypy .` to check types
+5. Use `pytest` to run tests
+6. Use `pre-commit` hooks for automated checks
+
+## File Organization
+- Keep related functionality in the same module
+- Use `__init__.py` files to expose public APIs
+- Place tests in `tests/` directory mirroring source structure
+- Use relative imports within the package
+- Group imports: stdlib, third-party, local
+
+## Dependencies Management
+- Add new dependencies to `pyproject.toml` under `[project.optional-dependencies]`
+- Use `uv add <package>` for adding dependencies
+- Prefer standard library over third-party packages
+- Document why external dependencies are needed in comments
+- Pin dependency versions for reproducibility
+
+## Error Handling
+- Use specific exception types (ValueError, TypeError, etc.)
+- Provide meaningful error messages with context
+- Use logging for debugging and monitoring
+- Handle edge cases gracefully
+- Use custom exceptions for domain-specific errors
+
+## Code Quality
+- Run `ruff check --fix` to auto-fix issues
+- Address all mypy type errors
+- Keep cyclomatic complexity low
+- Use meaningful commit messages
+- Review code before merging
+
+## Performance
+- Profile code when performance is critical
+- Use appropriate data structures
+- Avoid premature optimization
+- Use async/await for I/O operations when beneficial
+- Cache expensive computations
+
+## Documentation
+- Write clear README.md with setup instructions
+- Document API changes in docstrings
+- Use type hints as documentation
+- Keep examples up to date
+- Document configuration options 
