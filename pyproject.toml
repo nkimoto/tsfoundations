@@ -7,8 +7,8 @@ name = "tsfoundations"
 version = "0.1.0"
 description = "A Python project with uv, ruff, and cursor configuration"
 readme = "README.md"
-requires-python = ">=3.13"
-license = {text = "MIT"}
+requires-python = ">=3.11"
+license = { text = "MIT" }
 keywords = []
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -21,7 +21,10 @@ classifiers = [
 ]
 
 dependencies = [
-    # Add your main dependencies here
+    "distlib>=0.4.0",
+    "momentfm>=0.1.4",
+    "scikit-learn[forecasting]>=1.7.1",
+    "setuptools>=80.9.0",
 ]
 
 [project.optional-dependencies]
@@ -34,10 +37,25 @@ dev = [
     "mypy>=1.0.0",
     "pre-commit>=3.0.0",
 ]
-docs = [
-    "sphinx>=7.0.0",
-    "sphinx-rtd-theme>=1.3.0",
-    "myst-parser>=2.0.0",
+docs = ["sphinx>=7.0.0", "sphinx-rtd-theme>=1.3.0", "myst-parser>=2.0.0"]
+forecasting = [
+    # Core dependencies for data science and ML
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+    "tqdm>=4.65.0",
+    "scikit-learn>=1.3.0",
+
+    # PyTorch for deep learning
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+
+    # Jupyter for notebook execution
+    "jupyter>=1.0.0",
+    "ipykernel>=6.25.0",
+
+    # MOMENT from PyPI
+    # momentfm installed separately via uv add
 ]
 
 # uv configuration
@@ -73,18 +91,18 @@ exclude = [
     "*.egg",
 ]
 select = [
-    "ALL",  # Enable all rules
+    "ALL", # Enable all rules
 ]
 extend-ignore = [
-    "E501",  # line too long, handled by formatter
-    "B008",  # do not perform function calls in argument defaults
-    "C901",  # too complex
+    "E501",    # line too long, handled by formatter
+    "B008",    # do not perform function calls in argument defaults
+    "C901",    # too complex
     "PLR0913", # too many arguments
     "PLR0912", # too many branches
     "PLR0915", # too many statements
-    "S101",  # Use of assert detected
-    "S603",  # subprocess call - check for execution of untrusted input
-    "S607",  # Starting a process with a partial executable path
+    "S101",    # Use of assert detected
+    "S603",    # subprocess call - check for execution of untrusted input
+    "S607",    # Starting a process with a partial executable path
 ]
 
 # ruff formatter configuration
@@ -140,4 +158,3 @@ markers = [
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests",
 ]
-
