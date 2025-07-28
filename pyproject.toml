@@ -22,10 +22,16 @@ classifiers = [
 
 dependencies = [
     "huggingface-hub>=0.24.0",
-    "numpy>=1.26.0",           # Updated for Python 3.12+ compatibility
-    "torch>=2.0.0",            # Updated for better compatibility
-    "transformers>=4.40.0",    # Updated for Python 3.12+ and tokenizers compatibility
-    "setuptools>=68.0.0",      # replaces distutils functionality
+    "torch>=2.0.0", # Updated for better compatibility
+    "setuptools>=68.0.0", # replaces distutils functionality
+    "momentfm>=0.1.4",
+    "pandas>=2.1.0",
+    "scikit-learn>=1.7.1",
+    "matplotlib>=3.10.3",
+    "openpyxl>=3.1.5",
+    "seaborn>=0.13.2",
+    "numpy>=1.25.2",
+    "tqdm>=4.67.1",
 ]
 
 [project.optional-dependencies]
@@ -76,7 +82,17 @@ exclude = [
 
 [tool.ruff.lint]
 select = [
-    "ALL", # Enable all rules
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "I",   # isort
+    "N",   # pep8-naming
+    "C4",  # flake8-comprehensions
+    "PIE", # flake8-pie
+    "SIM", # flake8-simplify
+    "RET", # flake8-return
 ]
 extend-ignore = [
     "E501",    # line too long, handled by formatter
@@ -88,6 +104,12 @@ extend-ignore = [
     "S101",    # Use of assert detected
     "S603",    # subprocess call - check for execution of untrusted input
     "S607",    # Starting a process with a partial executable path
+    "N803",    # argument name should be lowercase
+    "N806",    # variable in function should be lowercase
+    "B904",    # raise without from inside except
+    "RET504",  # unnecessary variable assignment before return
+    "SIM108",  # use ternary operator
+    "UP032",   # use f-string instead of format
 ]
 
 # ruff formatter configuration
